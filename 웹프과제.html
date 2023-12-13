@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>멋진 날씨 정보</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: rgb(231, 237, 243);
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100%;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+        }
+        select, button {
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #f8f8f8;
+        }
+        a {
+        font-weight: bold; /* 볼드체 */
+        font-size: 20px; /* 글씨 크기 증가 */
+        color: #FFFF00; /* 노란형광색 */
+    }
+    .temperature, .place, .description {
+        color: #FFA500; /* 주황 형광색 */
+        font-weight: bold; /* 볼드체 */
+        font-size: 24px; /* 글씨 크기 증가 */
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>날씨 정보 조회</h1>
+    <dl>
+      <dd class="temperature"></dd>
+      <dd class="place"></dd>
+      <dd class="description"></dd>
+      <dd class="weather-list"></dd>
+    </dl>
+    <script src="script.js"></script>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD3OEcnd2iinBr3MTXuqDoatIaixX8L12DdQ&usqp=CAU" alt="신문 이미지" style="width:50px; height:50px;">
+    <a href="https://www.weather.go.kr/w/weather/forecast/short-term.do" target="_blank">기상청 뉴스</a>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD3OEcnd2iinBr3MTXuqDoatIaixX8L12DdQ&usqp=CAU" alt="신문 이미지" style="width:50px; height:50px;">
+    <a href="https://news.kbs.co.kr/news/pc/main/main.html" target="_blank">오늘의 뉴스!</a>
+    <img src="https://i.namu.wiki/i/WNpngwzObnQl7F8ASMyhb12OptW0RvaoSpI1lA3hDZq2uLkR5TY3E-IFRVnV-75ihQBGfYuOrm_ZSPLQd77NhA.svg" alt="기상청" style="width:50px; height:50px;">
+    <a href="https://www.weather.go.kr/w/index.do" target="_blank">기상청 바로가기</a>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQslFjOnaB8xYtiMFOKpaTungquVrA2HgIJ8FhAbm_p9Q&s" alt="경보" style="width:50px; height:50px;">
+    <a href="https://www.weather.go.kr/w/weather/warning/status.do" target="_blank">경보,특보 바로보기</a>
+    <img src="https://cdn-icons-png.flaticon.com/512/2122/2122721.png" alt="날씨" style="width:50px; height:50px;">
+    <a href="https://www.weather.go.kr/w/obs-climate/land/past-obs/obs-by-day.do" target="_blank">지난 날씨 보기</a>
+    <section style="clear: both; padding-top: 20px;">
+        <form action="https://www.google.com/search" method="get" target="_blank">
+            <input type="text" name="q" placeholder="구글 검색" style="width: 70%; padding: 10px;">
+            <input type="submit" value="검색" style="padding: 10px;">
+        </form>
+    </section>
+    <select id="weatherCondition">
+        <option value="Thunderstorm">뇌우</option>
+        <option value="Drizzle">이슬비</option>
+        <option value="Rain">비</option>
+        <option value="Snow">눈</option>
+        <option value="Mist">안개</option>
+        <option value="Smoke">연기</option>
+        <option value="Haze">실안개</option>
+        <option value="Dust">먼지</option>
+        <option value="Fog">짙은 안개</option>
+        <option value="Sand">모래</option>
+        <option value="Ash">화산재</option>
+        <option value="Squall">돌풍</option>
+        <option value="Tornado">토네이도</option>
+        <option value="Clear">맑음</option>
+        <option value="Clouds">구름</option>
+    </select>
+    
+    <script>
+        document.getElementById('weatherCondition').addEventListener('change', function() {
+            updateBackgroundImage(this.value);
+        });
+    </script>
+</body>
+</html>
